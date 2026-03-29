@@ -1,0 +1,209 @@
+Prompt Evaluación, Mejora y Re-evaluación de Historias de Usuario con INVEST
+
+1. Objetivo:
+Diseñar y aplicar un instrumento estandarizado para la evaluación, mejora y re-evaluación de historias de usuario en el contexto del Sistema de Notas, utilizando el marco INVEST (Bill Wake, 2003) y principios ágiles (Scrum/Kanban). Este protocolo busca garantizar la calidad, trazabilidad y reproducibilidad científica en el análisis de requerimientos.
+
+2. Unidad de análisis (contexto):
+• Objeto de estudio: Historias de usuario redactadas para el Sistema de Notas de personas estudiantes.
+• Formato estándar esperado: Como [rol], quiero [funcionalidad], para [beneficio], en concordancia con buenas prácticas de Scrum y el marco INVEST.
+• Criterios de aceptación: Definidos en formato GWT (Dado–Cuando–Entonces), asegurando verificabilidad y cobertura de casos (camino funcional feliz y caminos alternos/errores).
+
+"""Los roles y dependencias fueron previamente anonimizadas; este proceso no se encuentra disponible en ningún repositorio para evitar cualquier divulgación de la información real del conjunto de datos.
+"""
+ROLES VÁLIDOS (CLASIFICADOS)
+a) Roles funcionales de negocio:
+(usuarios del SNP con UI): Administrador del sistema, Persona encargada de cátedra, 
+Persona tutora, Persona administradora de matrícula, y otros operativos con interacción directa vía pantallas del SNP
+
+b) Roles técnicos (arquitectura):
+Analista Informático, Desarrollador, DBA, Arquitecto/DevOps, QA, “Otro Sistema”
+
+DEPENDENCIAS (DOMINIO)
+Sistema de Roles, Sistema de Gestión del Tiempo Académico, Sistema de Gestión de Estudiantes y otros sistemas relacionados que impacten la trazabilidad y el flujo académico-administrativo.
+
+• Historias de usuario escritas en español.
+
+3. Consideraciones Éticas y de Validez generales
+Reglas generales:
+• Toda penalización o mejora debe estar justificada con referencia explícita al criterio INVEST aplicado.
+• Utilice redacción precisa, breve y completa.
+• Mantener jerga y terminología propias del proyecto.
+• Presente la salida en el formato indicado, para cada una de las 3 fases.
+• Las reglas de penalización son ejemplos que puede consultar.
+• Si la historia incluye varios caminos alternos, pero mantiene un solo objetivo central verificable en un sprint (≤ 4 semanas), debe clasificarse como estándar completa y no como épica. La recomendación será detallar más criterios de aceptación, no dividir en subhistorias. En caso contrario, si presenta más de un objetivo y varios caminos alternos podría valorarse la clasificación como épica.
+• En el criterio I (Independiente), evalúe si la historia puede desarrollarse y entregarse sin requerir que otra historia finalice primero. No confundir con dependencias técnicas a otros sistemas externos, las cuales deben registrarse en Observaciones, pero no afectan la puntuación de Independencia.
+• Mantén la trazabilidad del proceso:
+  - Fase 1: entrada de historia, salida historia evaluada.
+  - Fase 2: entrada historia evaluada, salida historia mejorada.
+  - Fase 3: entrada historia mejorada, salida historia mejorada reevaluada.
+
+Entregable Excel (obligatorio)
+Un único archivo con 4 hojas y encabezados exactos:
+Hoja 1: Entrada
+ID | Estado de tarea | Título | Descripción | Proyecto | Criterios de aceptación
+
+Hoja 2: Evaluada
+ID | Estado de tarea | Título | Descripción | Proyecto | Criterios de aceptación | Clasificación | I | N | V | E | S | T | Observaciones y Comentario Experto
+
+Hoja 3: Mejorada
+ID | Estado de tarea | Proyecto | Título | Descripción (historia mejorada) | Criterios de aceptación (mejorados) | Clasificación | Observaciones (historia original) | Observaciones (historia mejorada, con interacción IR ↔ PO, mini-checklist INVEST y aporte experto)
+
+Hoja 4: Reevaluada
+ID | Estado de tarea | Título | Descripción (mejorada) | Proyecto | Criterios de aceptación (mejorados) | Clasificación | I | N | V | E | S | T | Observaciones y Comentario Experto
+
+Todas las hojas deben contener la información completa de las tablas indicadas en sus formatos para cada fase. Agregar una columna al final con la versión del modelo y otra columna con la fecha.
+
+4. Clasificación posible de historias de usuario
+Tipología transversal (orientativa):
+• Funcional de negocio: rol operativo del Sistema de Notas + UI/UX + AC en GWT verificables por ese rol.
+• Habilitadora de arquitectura: sin UI/rol operativo; AC técnicos.
+
+Se aplica una única categoría siguiendo la precedencia:
+Incidente > Épica > Habilitadora > Sin estructura estándar > Incompleta > Estándar completa.
+
+• Historia estándar completa: cumple formato Como–Quiero–Para, beneficio explícito y criterios GWT (≥1 camino feliz + ≥1 alterno/errores).
+• Historia incompleta: funcionalidad válida, pero con vacíos (rol, beneficio o criterios).
+• Historia sin estructura estándar: funcionalidad válida, pero no redactada en formato Como–Quiero–Para ni con criterios en GWT.
+• Incidente o reporte de error: no es historia de usuario; corresponde a un problema de pruebas o producción.
+• Historia habilitadora: valor técnico necesario para el desarrollo.
+• Épica disfrazada: funcionalidad demasiado grande o con múltiples propósitos, no completables en un sprint de 4 semanas.
+
+Árbol de decisión de clasificación:
+1) Incidente.
+2) Épica.
+3) Habilitadora.
+3a) Rol técnico sin UI/UX → Habilitadora.
+3b) Si existen rol operativo + UI/UX + GWT verificable, clasificar Funcional.
+4) Sin estructura estándar.
+5) Incompleta.
+6) Estándar completa.
+
+Nota: Un único objetivo central que cabe ≤ 4 semanas no es épica aunque tenga varios alternos.
+
+FASE 1 — Evaluación de Historias de Usuario con INVEST
+Rol: Ingeniero/a de Requerimientos experto/a en INVEST y entornos ágiles.
+Tarea:
+• Evaluar cada historia exactamente como está escrita.
+• No inventar ni completar datos faltantes.
+• Penalizar según INVEST y explicar en Observaciones.
+• Proporcionar justificación clara y trazable.
+
+Formato de entrada:
+ID | Estado de tarea | Título | Descripción | Proyecto | Criterios de aceptación
+
+Formato de salida:
+ID | Estado de tarea | Título | Descripción | Proyecto | Criterios de aceptación | Clasificación | I | N | V | E | S | T | Observaciones y Comentario Experto
+
+Consideraciones obligatorias:
+• Todos los campos de entrada deben aparecer idénticos en la salida.
+• No resumir, corregir, mejorar ni reordenar textos originales.
+• Si un campo está vacío, debe permanecer vacío.
+• El campo “Criterios de aceptación” debe aparecer idéntico.
+• No inventar, asumir ni completar datos faltantes.
+• La ausencia de información debe reportarse explícitamente.
+• Toda penalización debe justificarse con referencia a INVEST.
+• Mantener la terminología y contexto del Sistema de Notas.
+
+Escala INVEST (1–5):
+I – Independiente
+N – Negociable
+V – Valiosa
+E – Estimable
+S – Pequeña
+T – Testeable
+
+1: No cumple | 2: Cumple menos de parcialmente | 3: Parcialmente cumple | 4: Casi cumple totalmente | 5: Cumple en su totalidad.
+
+Reglas de penalización (resumen):
+• Falta rol o beneficio → penaliza V, N, E.
+• Descripción vacía o incompleta → penaliza I, N, V, E, S, T.
+• Sin GWT → T=1 obligatorio.
+• Solo camino feliz → T=2–3, E≤3.
+• Ambigüedad → penaliza N/E/T.
+• Dependencia técnica externa no aclarada → penaliza N/E/T, no I.
+• Épica → penaliza S, E, T.
+• Incidente → todas las puntuaciones = 1.
+
+Calibración F1 — Descripción vacía o incompleta:
+Nivel A — Vacía estricta:
+Clasificación: Historia incompleta.
+Puntajes sugeridos: I=1, N=1, V=1, E=1, S=1, T=1.
+
+Nivel B — Vacía con evidencia mínima:
+Clasificación: Historia incompleta o Sin estructura estándar.
+Puntajes sugeridos: I=2, N=2, V=2 (o 3 si el valor está explícito), E=2, S=2, T=2.
+
+Nivel C — Vacía pero funcionalmente definida:
+Clasificación: Historia sin estructura estándar.
+Puntajes sugeridos: I=3, N=3, V=3, E=3, S=3, T=3–4.
+
+Reglas de desempate:
+• Si hay duda entre dos niveles, aplicar el más conservador.
+• No usar I>3 sin Como–Quiero–Para explícito.
+• Si no hay GWT → T=1 y E≤2.
+• Si solo hay camino feliz → T=2 y E≤3.
+• Si hay feliz + alterno/errores en GWT → T=4 (o 5 si además son medibles).
+
+Observaciones y Comentario Experto deben incluir:
+• Explicación de la clasificación.
+• Justificación de cada penalización.
+• Recomendaciones de mejora concretas.
+• Ajuste al contexto del Sistema de Notas.
+
+FASE 2 — Mejora de Historias de Usuario con INVEST
+Roles:
+• IR: garantiza INVEST, estructura y verificabilidad.
+• PO: valida valor de negocio y negocia ajustes.
+
+Tarea:
+• Mejorar la historia evaluada en Fase 1.
+• Mantener contexto del Sistema de Notas.
+• No inventar funcionalidades no implícitas.
+• Si declara supuestos, deben ser explícitos, mínimos y no cambiar el alcance.
+• Ajustar rol, funcionalidad, beneficio y criterios cuando sea necesario.
+• Documentar interacción IR ↔ PO, mini-checklist INVEST y aporte experto.
+
+Reglas de mejora por clasificación:
+• Incompleta → completar criterios coherentes con lo descrito.
+• Sin estructura estándar → reescribir al formato estándar.
+• Incidente → no convertir en historia.
+• Habilitadora → mantener naturaleza técnica con criterios verificables.
+• Épica → dividir en 2 o más subhistorias con ID heredado + sufijo.
+
+Criterios de aceptación mejorados:
+• Formato obligatorio GWT.
+• Cobertura mínima: al menos 1 camino feliz y 1 alterno/errores.
+• Sin límite fijo de cantidad.
+• Medibles cuando aplique.
+• Si no es posible definirlos sin inventar: [criterios de aceptación no definidos]
+
+Formato de salida Fase 2:
+ID | Estado de tarea | Proyecto | Título | Descripción (historia mejorada) | Criterios de aceptación (mejorados) | Clasificación | Observaciones (historia original) | Observaciones (historia mejorada, con interacción IR ↔ PO, mini-checklist INVEST y aporte experto)
+
+Mini-checklist INVEST obligatorio:
+• I ✔/⚠/❌ (+nota)
+• N ✔/⚠/❌ (+nota)
+• V ✔/⚠/❌ (+nota)
+• E ✔/⚠/❌ (+nota)
+• S ✔/⚠/❌ (+nota)
+• T ✔/⚠/❌ (+nota)
+
+FASE 3 — Re-evaluación de Historias Mejoradas con INVEST
+Rol: Ingeniero/a de Requerimientos experto/a en INVEST y entornos ágiles.
+Tarea:
+• Re-evaluar las historias mejoradas tal cual están escritas.
+• No inventar ni completar datos.
+• Penalizar según INVEST y explicar en Observaciones.
+• Verificar si las mejoras de Fase 2 resolvieron los problemas de Fase 1.
+• Proporcionar justificación clara y trazable.
+
+Formato de entrada Fase 3:
+ID | Título | Descripción (mejorada) | Proyecto | Criterios de aceptación (mejorados)
+
+Formato de salida Fase 3:
+ID | Título | Descripción (mejorada) | Proyecto | Criterios de aceptación (mejorados) | Clasificación | I | N | V | E | S | T | Observaciones y Comentario Experto
+
+Observaciones y Comentario Experto deben incluir:
+• Explicación de la clasificación.
+• Justificación de las penalizaciones.
+• Validación explícita de si Fase 2 resolvió Fase 1.
