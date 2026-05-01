@@ -2,6 +2,10 @@
  
 This package provides an experimental implementation of a 3-phase INVEST protocol, preserving the complete protocol, methodological traceability, and the statistical analysis artifacts associated with this project.
 
+## Research Context
+This repository is referenced in the Data Availability Statement of the associated manuscript:
+"Assessing and Improving the Quality of User Stories Using Large Language Models: A Replication Study in an Industrial Context"  and provides the experimental artifacts required to understand and partially reproduce the methodology.
+
 ## Structure
 
 ```text
@@ -51,6 +55,15 @@ Quality-Replication-RQ/
    - token usage metrics,
    - reinforced rules for incident handling.
 
+## Reproducibility Scope
+
+This package supports:
+- methodological reproducibility (protocol),
+- computational reproducibility (pipeline execution),
+- analytical reproducibility (statistical outputs),
+
+but does not enable full data-level replication due to confidentiality constraints, as original user-story data cannot be disclosed.
+
 ## Installation
 
 ```bash
@@ -59,6 +72,8 @@ pip install -r requirements.txt
 
 ## Configuration
 
+Execution settings are specified in the Model Configuration section to ensure controlled and reproducible execution.
+
 > Execution incurs a USD cost for each model call in all three phases for each full run per user story.
 
 Create a `.env` file with:
@@ -66,9 +81,25 @@ Create a `.env` file with:
 ```bash
 OPENAI_API_KEY=sk-...
 ```
+This information should not be included in any repository. It is recommended to add the corresponding restriction to `.gitignore`.
 
-This information must not be included in any repository. It is recommended to add the corresponding restriction to `.gitignore`.
+## Model Configuration
 
+These settings correspond to the configuration reported in the manuscript:
+
+- Execution environment: programmatic execution (API-based)
+- Model: gpt-5.1 (API-based)
+- Temperature: 0.2
+- Runs: 6 per story (full 3-phase cycle)
+
+## Quick Start
+
+To reproduce the experiment:
+
+1. Prepare an anonymized input Excel file
+2. Configure your API key in `.env`
+3. Run the pipeline using one of the options below
+   
 ## Running from Python
 
 ```python
@@ -92,7 +123,7 @@ python -m invest_protocol.cli historias_entrada.xlsx --runs-fase1 6 --model gpt-
 
 ## Expected input format
 
-Input data must be anonymized in advance and must not contain real data from people, databases, or infrastructure elements. This is essential for security reasons when using industrial-context data. This anonymization process is not included here; the information is generated and stored only in a local environment. Likewise, the changes made must not be published in any repository.
+Input data must be anonymized in advance and must not contain real data from people, databases, or infrastructure elements. This is essential for security reasons when using industrial-context data. This anonymization process is not included here; the information is generated and stored only in a local environment. Likewise, the changes made should not be publicly shared in any repository.
 
 The `Entrada` sheet must contain exactly the following columns:
 
@@ -128,6 +159,17 @@ These metadata fields are preserved for traceability and transparency in the `Ev
 - Detected incidents are not converted into user stories during Phase 2. This only applies if such cases exist, as they may result from an incident being incorrectly recorded as a requirement. Although this should not be the norm in projects, the protocol explicitly handles and controls this scenario.
 
 - If the model response in Phase 2 does not include valid `items`, the system uses a safe fallback mechanism to continue execution without interrupting the process.
+  
+## Limitations
+
+Results produced using this package are specific to the dataset and experimental conditions of the study.
+
+Reproducibility is limited by:
+- absence of original user stories (confidentiality),
+- potential changes in the underlying model over time,
+- dependency on external API behavior.
+
+Therefore, results should not be generalized without further validation.
 
 ## Methodological value of the statistical files
 
@@ -142,6 +184,14 @@ These artifacts allow other researchers to review:
 - in which criteria agreement is stronger,
 - and where interpretation differences still remain.
 
-## Important note
+## Important Note
 
-The statistical results included in this package must be interpreted within the specific context of this project and the analyzed sample. They are provided as complementary evidence of the protocol’s behavior and should not be generalized beyond this dataset without additional validation.
+Original user stories are not included due to confidentiality constraints.
+
+Any additional data derived from industrial contexts should be handled according to applicable confidentiality and data protection requirements.
+
+## Citation
+
+Full reference will be added after publication.
+
+Preprint or accepted version will be linked here when available.
